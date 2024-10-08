@@ -12,7 +12,7 @@
 </head>
 <body>
     <h1>Admin Home</h1>
-    <c:if test="${message==true}"> Hello ${sessionScope.account.fullName}</c:if>
+    <c:if test="${message==true}"> Hello ${sessionScope.account.fullname}</c:if>
     <li>
         <a href="${pageContext.request.contextPath }/logout">Đăng Xuất</a>
     </li>
