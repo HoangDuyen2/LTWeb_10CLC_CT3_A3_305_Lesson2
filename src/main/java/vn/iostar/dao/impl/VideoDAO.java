@@ -12,19 +12,17 @@ import java.util.List;
 
 public class VideoDAO implements IVideoDAO {
     @Override
-    public List<Video> getAllVideosByCategory(String categoryId) {
+    public List<Video> getAllVideos() {
         List<Video> videos = new ArrayList<Video>();
         EntityManager entityManager = jpaConfig.getEntityManagerFactory();
-        String jpql= "select v from Video v where v.categoryId=:categoryId";
         try {
-            TypedQuery<Video> query = entityManager.createQuery(jpql, Video.class);
-            query.setParameter("categoryId", categoryId);
-            videos = query.getResultList();
+            videos = entityManager.createNamedQuery("Videos.findAll").getResultList();
             return videos;
-        }catch(Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
             return null;
-        }finally{
+        }finally {
             entityManager.close();
         }
     }

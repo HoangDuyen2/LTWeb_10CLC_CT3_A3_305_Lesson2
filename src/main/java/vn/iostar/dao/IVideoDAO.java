@@ -5,7 +5,7 @@ import vn.iostar.entity.Video;
 import java.util.List;
 
 public interface IVideoDAO {
-    List<Video> getAllVideosByCategory(String categoryId);
+    List<Video> getAllVideos();
 
     void insert(Video video);
 

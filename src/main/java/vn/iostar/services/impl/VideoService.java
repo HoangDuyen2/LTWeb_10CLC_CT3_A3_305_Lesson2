@@ -16,8 +16,8 @@ public class VideoService implements IVideoService {
         }
     }
     @Override
-    public List<Video> getAllVideosByCategory(String categoryId){
-        return videoDAO.getAllVideosByCategory(categoryId);
+    public List<Video> getAllVideos(){
+        return videoDAO.getAllVideos();
     }
 
     @Override
