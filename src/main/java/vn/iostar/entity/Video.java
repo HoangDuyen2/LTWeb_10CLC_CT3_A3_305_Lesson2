@@ -28,7 +28,7 @@ public class Video implements Serializable {
     private String poster;
 
     @Column(name = "title", columnDefinition = "LONGTEXT")
-    private int title;
+    private String title;
 
     @Column(name = "views")
     private int views;

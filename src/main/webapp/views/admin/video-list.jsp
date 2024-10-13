@@ -18,6 +18,7 @@
         <th>Active</th>
         <th>Title</th>
         <th>Views</th>
+        <th>Category</th>
         <th>Action</th>
         <%--    Trong action de chua nut xoa va sua--%>
     </tr>
@@ -32,13 +33,22 @@
         <tr>
             <td>${index.index+1}</td>
             <td>${video.description}</td>
-            <td>${video.poster}</td>
+            <c:if test="${video.poster.substring(0,5) == 'https'}">
+                <c:url value="${video.poster}" var="imgUrl"></c:url>
+            </c:if>
+            <c:if test="${video.poster.substring(0,5) != 'https'}">
+                <c:url value="/images?fname=${video.poster}" var="imgUrl"></c:url>
+            </c:if>
+            <td>
+                <img id="poster" height="200" width="150" src="${imgUrl}">
+            </td>
             <td>
                 <c:if test="${video.active == true}">Active</c:if>
                 <c:if test="${video.active != true}">Inactive</c:if>
             </td>
             <td>${video.title}</td>
             <td>${video.views}</td>
+            <td>${video.category.categoryname}</td>
             <td>
                 <a href="<c:url value="/admin/video/edit?id=${video.videoid}"/>">Sua</a>
                 |
